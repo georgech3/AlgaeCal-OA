@@ -35,13 +35,13 @@ api. The video endpoint should return this JSON:
   "data": [
     {
       "id": 1,
-      "title": "What It’s Like To Work At AlgaeCal,
+      "title": "What It’s Like To Work At AlgaeCal",
       "description": "Discover what it’s like to work at AlgaeCal with this quick video!",
       "video_id": "m3ralniniq"
     },
     {
       "id": 2,
-      "title": "Esther Mangini Testimonial,
+      "title": "Esther Mangini Testimonial",
       "category": "Testimonials",
       "description": "Esther’s journey to healthier bones”,
       "video_id": "ybyot0dm7q"
