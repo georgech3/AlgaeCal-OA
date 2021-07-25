@@ -6,7 +6,10 @@ volumes:
 
 services:
     slim:
+        build:
+            context: .
         image: php:7-alpine
+        container_name: server
         working_dir: /var/www
         command: php -S 0.0.0.0:8080 -t public
         environment:
@@ -16,3 +19,27 @@ services:
         volumes:
             - .:/var/www
             - logs:/var/www/logs
+        networks:
+            - app-network
+    nuxt:
+        build:
+            context: ./frontend
+        image: node:14-alpine
+        container_name: client
+        working_dir: /var/www
+        command: npm run-script start_docker
+        environment:
+            docker: "true"
+        ports:
+            - 3000:3000
+        volumes:
+            - ./frontend:/var/www
+        depends_on:
+            - slim
+        networks:
+            - app-network
+        stdin_open: true
+
+networks:
+    app-network:
+        driver: bridge
