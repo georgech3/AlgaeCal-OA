@@ -4,6 +4,7 @@
     "private": true,
     "scripts": {
         "dev": "nuxt",
+        "dev_docker": "HOST=0.0.0.0 nuxt",
         "build": "nuxt build",
         "start_docker": "HOST=0.0.0.0 nuxt start",
         "start": "nuxt start",
