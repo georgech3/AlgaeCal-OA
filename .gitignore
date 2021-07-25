@@ -7,3 +7,5 @@
 .phpunit.result.cache
 note.md
 videos.json
+composer-setup.php
+composer.phar
