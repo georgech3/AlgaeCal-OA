@@ -7,15 +7,14 @@
         v-model="form.fullname"
         type="text"
         required
-        placeholder="Enter fullname"
+        placeholder="Enter Your Fullname Please"
       ></b-form-input>
+
+      <b-alert variant="danger" :show="form.errorMessages != ''">
+        {{ form.errorMessages }}
+      </b-alert>
     </b-form-group>
     <b-button type="submit" variant="algae-color rounded-pill">Login</b-button>
-    <ul>
-      <li v-for="(message, index) in errorMessages" :key="index">
-        {{ message }}
-      </li>
-    </ul>
   </b-form>
 </template>
 
@@ -23,24 +22,38 @@
 <script>
 export default {
   name: "field",
-  props: {
-    errorMessages: {
-      type: Array,
-      default: () => {
-        return [];
-      },
-    },
-  },
   data() {
     return {
       form: {
         fullname: "",
+        errorMessages: "",
       },
     };
   },
   methods: {
-    onSubmitWithCheck: function (e) {
-      console.log("this.email");
+    async onSubmitWithCheck(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      let fullname = this.form.fullname;
+      this.$axios({
+        method: "get",
+        withCredentials: false,
+        crossDomain: true,
+        url: "http://localhost:8080/users/" + fullname,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          this.form.errorMessages = "";
+        })
+        .catch((err) => {
+          if (err.response.statusText == "Not Found") {
+            console.log("not found");
+            this.form.errorMessages = "Sorry, that username is not found";
+          }
+        });
     },
   },
 };
@@ -54,5 +67,8 @@ form {
   width: 100px;
   background-color: #35495e;
   color: white;
+}
+.alert-danger {
+  margin: 20px 0;
 }
 </style>

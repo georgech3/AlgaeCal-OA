@@ -68,8 +68,8 @@ export default {
             })
         }
     },
-    // TODO: change to production ip and add auth
-    server: {
-        location: "localhost:8080",
+    // TODO: change to production ip of server and add auth
+    axios: {
+        baseURL: 'http://localhost:8080'
     }
 }
