@@ -50,7 +50,8 @@ export default {
      */
     modules: [
         // Doc: https://bootstrap-vue.js.org
-        'bootstrap-vue/nuxt'
+        'bootstrap-vue/nuxt',
+        '@nuxtjs/axios'
     ],
     /*
      ** Build configuration
@@ -66,5 +67,9 @@ export default {
                 component: resolve(__dirname, 'pages/login.vue')
             })
         }
+    },
+    // TODO: change to production ip and add auth
+    server: {
+        location: "localhost:8080",
     }
 }
