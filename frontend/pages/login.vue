@@ -1,44 +1,41 @@
 <template>
-  <div class="container">
+  <div class="login-container">
     <div>
-      <b-card> Welcome To Our Video Library, Please Log In </b-card>
+      <b-card title="User Login">
+        <LoginForm />
+      </b-card>
     </div>
   </div>
 </template>
 
 <script>
+import LoginForm from "~/components/LoginForm.vue";
+
 export default {
-  data() {
-    return {
-      form: {
-        email: "",
-      },
-    };
-  },
-  methods: {
-    onSubmit() {
-      console.log("A form was submitted");
-    },
+  components: {
+    LoginForm,
   },
 };
 </script>
 
 <style>
-.container {
+.login-container {
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  background: rgba(22, 58, 48, 1);
 }
 
-.title {
+.card-title {
   font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
   font-weight: 300;
-  font-size: 100px;
+  font-size: 60px;
+  padding: 40px;
   color: #35495e;
   letter-spacing: 1px;
 }
