@@ -39,7 +39,7 @@ export default {
         method: "get",
         withCredentials: false,
         crossDomain: true,
-        url: "http://localhost:8080/users/" + fullname,
+        url: "/users/" + fullname,
         headers: {
           "Content-Type": "application/json",
         },
