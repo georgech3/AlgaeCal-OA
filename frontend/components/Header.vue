@@ -7,7 +7,7 @@
       </b-navbar-brand>
       <b-navbar-nav class="ml-auto" right>
         <b-nav-item href="/videos">VIDEOS</b-nav-item>
-        <b-nav-item href="/login">LOGOUT</b-nav-item>
+        <b-nav-item @click="logout" href="/login">LOGOUT</b-nav-item>
       </b-navbar-nav>
     </b-container>
   </b-navbar>
@@ -19,6 +19,19 @@ import Logo from "./Logo.vue";
 export default {
   components: {
     Logo,
+  },
+  methods: {
+    logout() {
+      if (this.$store.state.user.login_status == true) {
+        this.$store.commit("user/logout");
+        this.$router.push("/login");
+        this.$bvToast.toast(`Goodbye`, {
+          title: "Logout Success",
+          autoHideDelay: 800,
+          variant: "success",
+        });
+      }
+    },
   },
 };
 </script>
@@ -34,10 +47,6 @@ export default {
   /* fonts aligned with official websites */
   font-family: "roboto", Arial, Helvetica, sans-serif;
   color: #013b30;
-}
-
-li.nav-item {
-  /* border-bottom: 5px solid #013b30; */
 }
 
 li.nav-item:hover {
