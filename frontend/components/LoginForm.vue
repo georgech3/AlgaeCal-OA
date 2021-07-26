@@ -22,6 +22,7 @@
 <script>
 export default {
   name: "field",
+  middleware: ["checkUserLogin"],
   data() {
     return {
       form: {
@@ -35,31 +36,32 @@ export default {
       e.preventDefault();
       e.stopPropagation();
       let fullname = this.form.fullname;
-
-      this.$axios({
-        method: "get",
-        withCredentials: false,
-        crossDomain: true,
-        url: "/users/" + fullname,
-        headers: { "Content-Type": "application/json" },
-      })
-        .then((res) => {
-          this.$store.commit("user/login", res.data.data);
-          console.log(this.$store.state.user);
-          // clear error alert
-          this.form.errorMessages = "";
-          this.$bvToast.toast(`Hello ${fullname}`, {
-            title: "Login Success",
-            autoHideDelay: 800,
-            variant: "success",
-          });
-          setTimeout(() => this.$router.push("/videos"), 800);
-        })
-        .catch((err) => {
-          if (err.response.statusText == "Not Found") {
-            this.form.errorMessages = "Sorry, that username is not found";
-          }
-        });
+      this.$store.commit("user/login", "res.data.data");
+      console.log("good");
+      // this.$axios({
+      //   method: "get",
+      //   withCredentials: false,
+      //   crossDomain: true,
+      //   url: "/users/" + fullname,
+      //   headers: { "Content-Type": "application/json" },
+      // })
+      //   .then((res) => {
+      //     this.$store.commit("user/login", res.data.data);
+      //     console.log(this.$store.state.user);
+      //     // clear error alert
+      //     this.form.errorMessages = "";
+      //     this.$bvToast.toast(`Hello ${fullname}`, {
+      //       title: "Login Success",
+      //       autoHideDelay: 800,
+      //       variant: "success",
+      //     });
+      //     setTimeout(() => this.$router.push("/videos"), 800);
+      //   })
+      //   .catch((err) => {
+      //     if (err.response.statusText == "Not Found") {
+      //       this.form.errorMessages = "Sorry, that username is not found";
+      //     }
+      //   });
     },
   },
 };
