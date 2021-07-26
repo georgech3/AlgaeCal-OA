@@ -1,5 +1,6 @@
 <template>
   <b-form @submit="onSubmitWithCheck">
+    <!-- TODO: -->
     <b-form-group id="input-group-1" label="Full Name:" label-for="input-1">
       <b-form-input
         id="input-1"
@@ -22,17 +23,20 @@
 <script>
 export default {
   name: "field",
+  props: {
+    errorMessages: {
+      type: Array,
+      default: () => {
+        return [];
+      },
+    },
+  },
   data() {
     return {
       form: {
         fullname: "",
       },
     };
-  },
-  watch: {
-    fieldValue() {
-      this.inputEmit();
-    },
   },
   methods: {
     onSubmitWithCheck: function (e) {
@@ -43,4 +47,12 @@ export default {
 </script>
 
 <style scoped>
+form {
+  font-family: "roboto", Arial, Helvetica, sans-serif;
+}
+.btn-algae-color {
+  width: 100px;
+  background-color: #35495e;
+  color: white;
+}
 </style>
