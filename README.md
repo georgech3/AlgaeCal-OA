@@ -1,6 +1,9 @@
 # Web Developer Test 
 ## Developer Note
 Apply `Docker-compose up` to start the server and client!
+![](https://i.imgur.com/QPe0ihp.png)
+![](https://i.imgur.com/DeBbQKT.gif)
+
 ## Tasks
 ### Store
 - user
