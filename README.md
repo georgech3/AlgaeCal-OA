@@ -40,6 +40,7 @@ Apply `Docker-compose up` to start the server and client!
 - user
 - videos
 ![](https://i.imgur.com/JW8IlMS.png)
+
 ## Thought Process
 ### Docker
 I build a docker-compose with `server` and `client` two seprarted services.
@@ -48,8 +49,15 @@ I build a docker-compose with `server` and `client` two seprarted services.
   - For convinence in developing, commands like `npm run-script dev` helps us live-coding nuxt package compare once-built `npm run-script start`
   - Besides, we can also have a config file recording key, server ip, etc..... I directly write them on demo code today.
 - It risk some mysterious bug like not allowing `asyncData can't have an await function to localhost server`
+### Form Vaildation
+- I apply a simple way in validating username (that is, `Bill Gates`-> `bill-gates`) from user-side. However, we can build more complex rule in long-term.
+### Logo
+- I get ths svg file from AlgaeCal Official Website (non-officially)
 ### CSS
-- As a 
+- Instead of build a well-organized color set (Scss / SASS), I implement some workwround.
+### Test
+- I test for basic functions of all units, and we can build a well-set testing pipeline before submitting.
+
 
 ## Original ReadME
 
