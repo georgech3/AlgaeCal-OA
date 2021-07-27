@@ -22,7 +22,6 @@
 <script>
 export default {
   name: "LoginForm",
-  middleware: ["checkUserLogin"],
   data() {
     return {
       form: {
@@ -44,10 +43,12 @@ export default {
         headers: { "Content-Type": "application/json" },
       })
         .then((res) => {
+          // save the state to store
           this.$store.commit("user/login", res.data.data);
-          console.log(this.$store.state.user);
+
           // clear error alert
           this.form.errorMessages = "";
+
           // show login success message
           this.$bvToast.toast(`Hello ${fullname}`, {
             title: "Login Success",
@@ -67,10 +68,6 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  max-width: 100%;
-}
-
 form {
   font-family: "roboto", Arial, Helvetica, sans-serif;
 }

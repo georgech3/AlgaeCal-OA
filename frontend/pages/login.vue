@@ -1,10 +1,14 @@
 <template>
-  <div class="container">
-    <div>
-      <b-card title="User Login">
-        <LoginForm />
-      </b-card>
-    </div>
+  <div class="index_wrapper">
+    <b-container>
+      <b-row class="justify-content-md-center">
+        <b-col cols="12" md="auto">
+          <b-card title="User Login">
+            <LoginForm />
+          </b-card>
+        </b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 
@@ -19,14 +23,21 @@ export default {
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 90vh;
+:root {
+  --algae-color-deep: rgba(22, 58, 48, 1);
+  --algae-color-light: rgba(12, 113, 87);
+}
+
+.index_wrapper {
+  padding: 0 auto;
+  margin: 0;
+  min-height: 95vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: rgba(22, 58, 48, 1);
+  background-color: var(--algae-color-deep);
 }
 
 .card-title {
@@ -36,7 +47,7 @@ export default {
   font-weight: 300;
   font-size: 60px;
   padding: 40px;
-  color: #35495e;
+  color: var(--algae-color-deep);
   letter-spacing: 1px;
 }
 
