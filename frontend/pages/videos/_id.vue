@@ -3,11 +3,13 @@
 
 <template>
   <b-container>
-    <b-row>
-      <b-col><NuxtLink to="/videos">Back</NuxtLink></b-col>
+    <b-row align-h="center">
+      <b-col cols="11"
+        ><b-col><NuxtLink to="/videos">Back</NuxtLink></b-col></b-col
+      >
     </b-row>
     <b-row align-h="center">
-      <b-col cols="8"><h2>Video Player</h2></b-col>
+      <b-col cols="8"><h3 class="subtitle">Video Player</h3></b-col>
       <b-col cols="8"
         ><b-img
           src="~/assets/img/thumbnail.png"
@@ -16,7 +18,7 @@
         />
       </b-col>
       <b-col cols="8"
-        ><h2>{{ video_title }}</h2></b-col
+        ><h3 class="subtitle">{{ video_title }}</h3></b-col
       >
       <b-col cols="8"
         ><p>{{ video_description }}</p></b-col

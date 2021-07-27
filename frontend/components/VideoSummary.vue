@@ -35,7 +35,7 @@
             </NuxtLink>
           </div>
         </div>
-        <h3>{{ item.title }}</h3>
+        <h3 style="card-title">{{ item.title }}</h3>
         <p>{{ item.description }}</p>
       </b-col>
     </b-row>

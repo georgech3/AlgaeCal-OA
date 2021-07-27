@@ -11,7 +11,7 @@ export default {
   components: {
     VideoSummary,
   },
-  // middleware: ["checkUserLogin"],
+  middleware: ["checkUserLogin"],
   data() {
     return {};
   },

@@ -20,15 +20,29 @@ export default {
   components: {
     Logo,
   },
+  data() {
+    return {
+      login: false,
+    };
+  },
   methods: {
     logout() {
       if (this.$store.state.user.login_status == true) {
         this.$store.commit("user/logout");
+        this.$store.commit("video/claerData");
         this.$router.push("/login");
+        // info the user that he logouted
         this.$bvToast.toast(`Goodbye`, {
           title: "Logout Success",
           autoHideDelay: 800,
           variant: "success",
+        });
+      } else {
+        // info the user that he logouted
+        this.$bvToast.toast(`You haven't login`, {
+          title: "Please login first",
+          autoHideDelay: 800,
+          variant: "danger",
         });
       }
     },
