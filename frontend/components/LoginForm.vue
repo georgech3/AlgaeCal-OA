@@ -7,7 +7,7 @@
         v-model="form.fullname"
         type="text"
         required
-        placeholder="Enter Your Fullname Please"
+        placeholder="Write with all lower letter and connect with '-' e.g. bill-gates"
       ></b-form-input>
 
       <b-alert variant="danger" :show="form.errorMessages != ''">
