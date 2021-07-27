@@ -21,12 +21,13 @@ class InMemoryUserRepository implements UserRepository
      */
     public function __construct(array $users = null)
     {
+        // workaround: change bill.gates to bill-gates for url accessment
         $this->users = $users ?? [
-            1 => new User(1, 'bill.gates', 'Bill', 'Gates'),
-            2 => new User(2, 'steve.jobs', 'Steve', 'Jobs'),
-            3 => new User(3, 'mark.zuckerberg', 'Mark', 'Zuckerberg'),
-            4 => new User(4, 'evan.spiegel', 'Evan', 'Spiegel'),
-            5 => new User(5, 'jack.dorsey', 'Jack', 'Dorsey'),
+            1 => new User(1, 'bill-gates', 'Bill', 'Gates'),
+            2 => new User(2, 'steve-jobs', 'Steve', 'Jobs'),
+            3 => new User(3, 'mark-zuckerberg', 'Mark', 'Zuckerberg'),
+            4 => new User(4, 'evan-spiegel', 'Evan', 'Spiegel'),
+            5 => new User(5, 'jack-dorsey', 'Jack', 'Dorsey'),
         ];
     }
 
@@ -48,5 +49,18 @@ class InMemoryUserRepository implements UserRepository
         }
 
         return $this->users[$id];
+    }
+
+    // find user by name
+    public function findUserOfName(string $username): User
+    {
+        #manipulate with array
+        $user = array_search($username,array_column(json_decode(json_encode($this->users),TRUE), 
+        'username','id'));
+        if (!$user) {
+            throw new UserNotFoundException();
+        }
+
+        return $this->users[$user];
     }
 }
