@@ -1,4 +1,33 @@
-# Web Developer Test
+# Web Developer Test 
+## Developer Note
+Apply `Docker-compose up` to start the server and client!
+## Tasks
+### Store
+- user
+- videos
+
+### Layout
+* [x] Nav Bar
+* [x] Footer
+
+### Pages
+- login
+   * [x] Blue button to algaecal green
+   * [x] Better text styling
+   * [x] Login failure messages: no username found; possible
+   * [x] validation checks
+
+- videos
+   * [x] Layout improvement
+   * [x] Hover on list items
+   * [x] Click to go to video page
+   * [x] Structure video description
+   * [x] Videos are filterable based on category
+    
+- /videos/{video_id}
+   * [x] Layout
+    
+## Original ReadME
 
 Let's pretend AlgaeCal is creating a simple membership site where customers may view a library of 
 exclusive video content.
