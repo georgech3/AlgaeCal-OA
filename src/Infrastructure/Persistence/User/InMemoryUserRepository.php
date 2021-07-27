@@ -54,7 +54,7 @@ class InMemoryUserRepository implements UserRepository
     // find user by name
     public function findUserOfName(string $username): User
     {
-        #manipulate with array
+        # Search in php array from a decoded JSON object and encode to the json result which is easy to be sent
         $user = array_search($username,array_column(json_decode(json_encode($this->users),TRUE), 
         'username','id'));
         if (!$user) {
