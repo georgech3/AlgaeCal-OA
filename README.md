@@ -3,9 +3,11 @@
 Apply `Docker-compose up` to start the server and client!
 ![](https://i.imgur.com/QPe0ihp.png)
 ![](https://i.imgur.com/DeBbQKT.gif)
-
+## Environment
+- MBP with macOS Catalina 10.15.7
+- Docker version 20.10.7
+- Composer `v2.1.5`
 ## Tasks
-
 ### Layout
 * [x] Nav Bar
 * [x] Footer
@@ -38,6 +40,16 @@ Apply `Docker-compose up` to start the server and client!
 - user
 - videos
 ![](https://i.imgur.com/JW8IlMS.png)
+## Thought Process
+### Docker
+I build a docker-compose with `server` and `client` two seprarted services.
+- It benefits future scability and maintainability
+- We can also separate file into `docker-compose-dev` for development and `docker-compose-prod` for production
+  - For convinence in developing, commands like `npm run-script dev` helps us live-coding nuxt package compare once-built `npm run-script start`
+  - Besides, we can also have a config file recording key, server ip, etc..... I directly write them on demo code today.
+- It risk some mysterious bug like not allowing `asyncData can't have an await function to localhost server`
+### CSS
+- As a 
 
 ## Original ReadME
 
