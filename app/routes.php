@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 use App\Application\Actions\User\ListUsersAction;
 use App\Application\Actions\User\ViewUserAction;
-use App\Application\Actions\Video\ListVideoAction;
+use App\Application\Actions\Video\ListVideosAction;
 use App\Application\Actions\Video\ViewVideoAction;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -23,7 +23,7 @@ return function (App $app) {
     });
 
     $app->group('/videos', function (Group $group) {
-        $group->get('', ListVideoAction::class);
+        $group->get('', ListVideosAction::class);
         $group->get('/{video_id}', ViewVideoAction::class);
     });
 };

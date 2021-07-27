@@ -91,8 +91,6 @@ class Video implements JsonSerializable
     /**
      * @return array
      */
-
-     //This arranges the result to be sent to a successful request from Nuxt in a JSON format
     public function jsonSerialize()
     {
         return [
