@@ -5,9 +5,6 @@ Apply `Docker-compose up` to start the server and client!
 ![](https://i.imgur.com/DeBbQKT.gif)
 
 ## Tasks
-### Store
-- user
-- videos
 
 ### Layout
 * [x] Nav Bar
@@ -18,18 +15,30 @@ Apply `Docker-compose up` to start the server and client!
    * [x] Blue button to algaecal green
    * [x] Better text styling
    * [x] Login failure messages: no username found; possible
+   	* ![failure message](https://i.imgur.com/E5A0fu4.png)
    * [x] validation checks
+	* ![validation](https://i.imgur.com/Iyh5xpK.gif)
 
 - videos
    * [x] Layout improvement
-   * [x] Hover on list items
-   * [x] Click to go to video page
    * [x] Structure video description
+   	* ![layout and structure](https://i.imgur.com/8Rcq0h4.png)
+   * [x] Hover on list items
+   	* ![hover](https://i.imgur.com/sKif9xT.png)
+   * [x] Click to go to video page
+    * ![click-to-go](https://i.imgur.com/S0CTsMS.gif)
    * [x] Videos are filterable based on category
-    
+   	* ![filter](https://i.imgur.com/y8No5mF.gif)
+
 - /videos/{video_id}
    * [x] Layout
+   	* ![layout](https://i.imgur.com/PHKA86V.png)
     
+### Store
+- user
+- videos
+![](https://i.imgur.com/JW8IlMS.png)
+
 ## Original ReadME
 
 Let's pretend AlgaeCal is creating a simple membership site where customers may view a library of 
