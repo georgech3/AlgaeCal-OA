@@ -7,7 +7,7 @@
         v-model="form.fullname"
         type="text"
         required
-        placeholder="Write with all lower letter and connect with '-' e.g. bill-gates"
+        placeholder="e.g. bill-gates"
       ></b-form-input>
 
       <b-alert variant="danger" :show="form.errorMessages != ''">
@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: "field",
+  name: "LoginForm",
   middleware: ["checkUserLogin"],
   data() {
     return {
@@ -36,38 +36,41 @@ export default {
       e.preventDefault();
       e.stopPropagation();
       let fullname = this.form.fullname;
-      this.$store.commit("user/login", "res.data.data");
-      console.log("good");
-      // this.$axios({
-      //   method: "get",
-      //   withCredentials: false,
-      //   crossDomain: true,
-      //   url: "/users/" + fullname,
-      //   headers: { "Content-Type": "application/json" },
-      // })
-      //   .then((res) => {
-      //     this.$store.commit("user/login", res.data.data);
-      //     console.log(this.$store.state.user);
-      //     // clear error alert
-      //     this.form.errorMessages = "";
-      //     this.$bvToast.toast(`Hello ${fullname}`, {
-      //       title: "Login Success",
-      //       autoHideDelay: 800,
-      //       variant: "success",
-      //     });
-      //     setTimeout(() => this.$router.push("/videos"), 800);
-      //   })
-      //   .catch((err) => {
-      //     if (err.response.statusText == "Not Found") {
-      //       this.form.errorMessages = "Sorry, that username is not found";
-      //     }
-      //   });
+      this.$axios({
+        method: "get",
+        withCredentials: false,
+        crossDomain: true,
+        url: "/users/" + fullname,
+        headers: { "Content-Type": "application/json" },
+      })
+        .then((res) => {
+          this.$store.commit("user/login", res.data.data);
+          console.log(this.$store.state.user);
+          // clear error alert
+          this.form.errorMessages = "";
+          // show login success message
+          this.$bvToast.toast(`Hello ${fullname}`, {
+            title: "Login Success",
+            autoHideDelay: 800,
+            variant: "success",
+          });
+          setTimeout(() => this.$router.push("/videos"), 800);
+        })
+        .catch((err) => {
+          if (err.response.statusText == "Not Found") {
+            this.form.errorMessages = "Sorry, that username is not found";
+          }
+        });
     },
   },
 };
 </script>
 
 <style scoped>
+.container {
+  max-width: 100%;
+}
+
 form {
   font-family: "roboto", Arial, Helvetica, sans-serif;
 }

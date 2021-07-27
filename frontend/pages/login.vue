@@ -1,5 +1,5 @@
 <template>
-  <div class="login-container">
+  <div class="container">
     <div>
       <b-card title="User Login">
         <LoginForm />
@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style>
-.login-container {
+.container {
   margin: 0 auto;
   min-height: 90vh;
   display: flex;

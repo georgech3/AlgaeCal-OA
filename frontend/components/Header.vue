@@ -1,6 +1,6 @@
 <template>
   <b-navbar>
-    <b-container fluid="md">
+    <b-container fluid>
       <b-navbar-brand href="/">
         <Logo />
         <!-- <img src="@/assets/img/logo.jpeg" alt="logo of the AlgaeCal"/> -->
@@ -37,6 +37,11 @@ export default {
 </script>
 
 <style scoped>
+.navbar {
+  width: 80%;
+  margin: 0 auto;
+}
+
 .navbar-brand > svg {
   /* parameter from official websites */
   height: 54px;
