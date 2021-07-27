@@ -13,9 +13,6 @@ class ViewUserAction extends UserAction
     protected function action(): Response
     {
         $userName = (string) $this->resolveArg('username');
-        // $body = $this->request->getParsedBody();
-        // $userName = $body['username'];
-        $this->logger->info("get `${userName}`");
         $user = $this->userRepository->findUserOfName($userName);
 
         $this->logger->info("User of username `${userName}` was viewed.");
